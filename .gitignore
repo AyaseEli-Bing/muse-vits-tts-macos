@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.ipynb_checkpoints/
+
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# macOS / 编辑器
+.DS_Store
+.idea/
+.vscode/
+
+# 模型权重不入库（体积大 / 再分发权需自行确认）；放置见 models_local/README.md
+models_local/*
+!models_local/README.md
+*.pth
+*.ckpt
+
+# monotonic_align 编译产物（源码 __init__.py/core.pyx/setup.py 保留）
+monotonic_align/build/
+monotonic_align/core.c
+monotonic_align/monotonic_align/
+*.so
+
+# 生成输出
+output/
+*.wav
+
+# 训练/日志临时物
+logs/
+*.log

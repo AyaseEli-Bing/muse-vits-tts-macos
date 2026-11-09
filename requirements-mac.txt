@@ -1,0 +1,29 @@
+# macOS (Apple Silicon) 推理实测依赖 —— 配合 Python 3.11
+# 上游 requirements.txt 面向训练/数据准备；这里只固定 webui.py / cmd_inference.py 推理所需、且本机验证可跑的组合。
+#
+# 关键约束：
+#   - 必须 Python 3.11：3.12 下 pyopenjtalk-prebuilt 无 cp311 arm64 轮子、且 distutils 已移除导致构建失败。
+#   - setuptools<81：pyopenjtalk 依赖 pkg_resources，>=81 移除会 ModuleNotFoundError。
+
+torch==2.15.0
+gradio==6.31.0
+numpy==1.26.4
+scipy==1.17.1
+librosa==0.11.0
+soundfile==0.14.0
+pyopenjtalk-prebuilt==0.3.0
+pypinyin==0.55.0
+jieba==0.42.1
+cn2an==0.5.24
+eng_to_ipa==0.0.2
+inflect==7.6.0
+jamo==0.4.1
+unidecode==1.4.0
+Cython==3.3.1
+setuptools<81
+
+# 可选：其它语言/方言的 text 模块才需要（本项目 zh/ja 推理不涉及，按需再装）
+# opencc-python-reimplemented   # 粤语 / 吴语 / 上海话
+# ko_pron                       # 韩语
+# indic_transliteration         # 印度语系
+# num_thai                      # 泰语
